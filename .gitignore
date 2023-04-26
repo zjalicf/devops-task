@@ -17,8 +17,5 @@
 # Go workspace file
 go.work
 
-# Env file
-.env
-
 # My notes
 progress.txt
