@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"os"
+	// "os"
 )
 
 const (
@@ -29,11 +29,11 @@ func handleRequests() {
 	http.HandleFunc(healthzPath, healthz)
 	http.HandleFunc(readinessPath, readyz)
 
-	port := os.Getenv("PORT")
+	port := "11000"
 	
-	if port == "" {
-		log.Fatal("Port is not set.")
-	}
+	// if port == "" {
+	// 	log.Fatal("Port is not set.")
+	// }
 
 	log.Printf("Server listening on port %s...", port)
 
