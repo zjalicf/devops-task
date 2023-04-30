@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "service.fullname" . }}
+  labels:
+    {{- include "service.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.deployment.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "service.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.deployment.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "service.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag | default .Chart.AppVersion }}"
+          ports:
+            - name: http
+              protocol: TCP
+              containerPort: {{ .Values.deployment.containerPort }}
+          livenessProbe:
+            initialDelaySeconds: {{ .Values.deployment.probes.initialDelaySeconds }}
+            httpGet:
+              path: {{ .Values.deployment.probes.livenessPath }}
+              port: http
+          readinessProbe:
+            initialDelaySeconds: {{ .Values.deployment.probes.initialDelaySeconds }}
+            httpGet:
+              path: {{ .Values.deployment.probes.readinessPath }}
+              port: http

@@ -1,0 +1,32 @@
+nameOverride: hello
+
+deployment:
+  image:
+    repository: zjalicf/tx-task
+    tag: "v1.0.0"
+  containerPort: 11000
+  probes:
+    initialDelaySeconds: 3
+    livenessPath: /probe/liveness
+    readinessPath: /probe/readiness
+  replicaCount: 1
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+
+  tls:
+  - hosts:
+    - hello.goldbach-task.site
+    secretName: goldbach-task-tls-secret
+  hosts:
+    - host: hello.goldbach-task.site
+      paths:
+        - path: /
+          pathType: ImplementationSpecific

@@ -36,3 +36,11 @@ jobs:
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/tx-task:${{steps.get-tag.outputs.tag}}
           cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/tx-task:buildcache
           cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/tx-task:buildcache,mode=max
+      
+      - name: Deploy to cluster
+        uses: wahyd4/kubectl-helm-action@master
+        env:
+          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+        with:
+          args: |
+            helm upgrade --install hello helm/app --namespace hello --create-namespace --values hello-values.yaml
