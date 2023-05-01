@@ -3,7 +3,7 @@ nameOverride: hello
 deployment:
   image:
     repository: zjalicf/tx-task
-    tag: "v1.0.0"
+    # tag: "v1.0.0"
   containerPort: 11000
   probes:
     initialDelaySeconds: 3
