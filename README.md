@@ -2,6 +2,12 @@
 
 Writing a simple hello world app in Go is pretty simple. However, knowing the requirements of the task it was necessary to research possible problems and best practices since the application will be deployed to the K8s cluster.
 
+### Additional
+
+- Visit [https://hello.goldbach-task.site/](https://hello.goldbach-task.site/) for a live demo of the app
+- [Github repository](https://github.com/zjalicf/tx-task)
+- [Dockerhub](https://hub.docker.com/r/zjalicf/tx-task)
+
 ### Hello world app
 
 - Regarding the code itself, important things to include were healthcheck and readiness for k8s, and following best practices regarding writing Go code.
@@ -281,12 +287,6 @@ Writing a simple hello world app in Go is pretty simple. However, knowing the re
 ### Diagram
 
 ![image](https://user-images.githubusercontent.com/64900037/235937364-f2b3f7d1-ebf0-4509-b8bb-7080ea3a16c1.png)
-
-### Additional
-
-- Visit [https://hello.goldbach-task.site/](https://hello.goldbach-task.site/) for a live demo of the app
-- [Github repository](https://github.com/zjalicf/tx-task)
-- [Dockerhub](https://hub.docker.com/r/zjalicf/tx-task)
 
 ### Tools used
 
