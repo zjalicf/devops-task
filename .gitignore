@@ -1,3 +1,5 @@
+tx-task-cluster-kubeconfig.yaml
+
 # Binaries for programs and plugins
 *.exe
 *.exe~
