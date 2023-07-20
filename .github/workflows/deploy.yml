@@ -33,9 +33,9 @@ jobs:
           file: Dockerfile
           target: release-debian
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/tx-task:${{steps.get-tag.outputs.tag}}
-          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/tx-task:buildcache
-          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/tx-task:buildcache,mode=max
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/devops-task:${{steps.get-tag.outputs.tag}}
+          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/devops-task:buildcache
+          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/devops-task:buildcache,mode=max
       
       - name: Deploy to cluster
         uses: wahyd4/kubectl-helm-action@master

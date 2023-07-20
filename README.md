@@ -190,9 +190,9 @@ Writing a simple hello world app in Go is pretty simple. However, knowing the re
               file: Dockerfile
               target: release-debian
               push: true
-              tags: ${{ secrets.DOCKER_HUB_USERNAME }}/tx-task:${{steps.get-tag.outputs.tag}}
-              cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/tx-task:buildcache
-              cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/tx-task:buildcache,mode=max
+              tags: ${{ secrets.DOCKER_HUB_USERNAME }}/devops-task:${{steps.get-tag.outputs.tag}}
+              cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/devops-task:buildcache
+              cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/devops-task:buildcache,mode=max
           
           - name: Deploy to cluster
             uses: wahyd4/kubectl-helm-action@master
@@ -252,7 +252,7 @@ Writing a simple hello world app in Go is pretty simple. However, knowing the re
     
     deployment:
       image:
-        repository: zjalicf/tx-task
+        repository: zjalicf/devops-task
         tag: "v1.1.1"
       containerPort: 11000
       probes:

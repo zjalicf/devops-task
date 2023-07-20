@@ -12,7 +12,7 @@ const (
 )
 
 func hello(w http.ResponseWriter, _ *http.Request) {
-	fmt.Fprintf(w, "Hello Goldbach from @Filip")
+	fmt.Fprintf(w, "Hello Filip")
 }
 
 func healthz(w http.ResponseWriter, _ *http.Request) {

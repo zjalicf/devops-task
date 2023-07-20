@@ -2,7 +2,7 @@ nameOverride: hello
 
 deployment:
   image:
-    repository: zjalicf/tx-task
+    repository: zjalicf/devops-task
     tag: "v1.1.1"
   containerPort: 11000
   probes:
@@ -23,10 +23,10 @@ ingress:
 
   tls:
   - hosts:
-    - hello.goldbach-task.site
-    secretName: goldbach-task-tls-secret
+    - hello.devops-task.site
+    secretName: devops-task-tls-secret
   hosts:
-    - host: hello.goldbach-task.site
+    - host: hello.devops-task.site
       paths:
         - path: /
           pathType: ImplementationSpecific

@@ -1,3 +1,3 @@
-module github.com/zjalicf/tx-task
+module github.com/zjalicf/devops-task
 
 go 1.20
