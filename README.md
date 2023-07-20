@@ -1,12 +1,12 @@
-# tx-task
+# devops-task
 
 Writing a simple hello world app in Go is pretty simple. However, knowing the requirements of the task it was necessary to research possible problems and best practices since the application will be deployed to the K8s cluster.
 
 ### Additional
 
-- Visit [https://hello.goldbach-task.site/](https://hello.goldbach-task.site/) for a live demo of the app
-- [Github repository](https://github.com/zjalicf/tx-task)
-- [Dockerhub](https://hub.docker.com/r/zjalicf/tx-task)
+- Visit [https://hello.devops-task.site/](https://hello.devops-task.site/) for a live demo of the app
+- [Github repository](https://github.com/zjalicf/devops-task)
+- [Dockerhub](https://hub.docker.com/r/zjalicf/devops-task)
 
 ### Hello world app
 
@@ -35,7 +35,7 @@ Writing a simple hello world app in Go is pretty simple. However, knowing the re
     
     ```go
     func hello(w http.ResponseWriter, _ *http.Request) {
-    	fmt.Fprintf(w, "Hello Goldbach from @Filip")
+    	fmt.Fprintf(w, "Hello Filip")
     }
     
     func healthz(w http.ResponseWriter, _ *http.Request) {
@@ -273,10 +273,10 @@ Writing a simple hello world app in Go is pretty simple. However, knowing the re
     
       tls:
       - hosts:
-        - hello.goldbach-task.site
-        secretName: goldbach-task-tls-secret
+        - hello.devops-task.site
+        secretName: devops-task-tls-secret
       hosts:
-        - host: hello.goldbach-task.site
+        - host: hello.devops-task.site
           paths:
             - path: /
               pathType: ImplementationSpecific
