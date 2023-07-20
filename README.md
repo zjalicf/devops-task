@@ -284,10 +284,6 @@ Writing a simple hello world app in Go is pretty simple. However, knowing the re
     
 - Linode’s DNS service simply does not work properly since after more than 48 hours purchased domain still didn’t propagate, so Namecheap was used to obtain the domain.
 
-### Diagram
-
-![image](https://user-images.githubusercontent.com/64900037/235937364-f2b3f7d1-ebf0-4509-b8bb-7080ea3a16c1.png)
-
 ### Tools used
 
 - [Hadolint](https://hadolint.github.io/hadolint/)
